@@ -1,0 +1,54 @@
+﻿@model Webinar.Models.WebinarModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>WebinarModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.JudulWebinar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.JudulWebinar)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Deskripsi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Deskripsi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tanggal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tanggal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Platform)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Platform)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GambarUrl)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GambarUrl)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PembicaraModel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PembicaraModel.NamaBelakang)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.WebinarModelID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,57 @@
+﻿@model Webinar.Models.WebinarModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>WebinarModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.JudulWebinar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.JudulWebinar)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Deskripsi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Deskripsi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tanggal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tanggal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Platform)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Platform)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GambarUrl)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GambarUrl)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PembicaraModel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PembicaraModel.NamaBelakang)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="WebinarModelID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
