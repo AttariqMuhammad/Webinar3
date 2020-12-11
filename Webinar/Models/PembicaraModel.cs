@@ -14,7 +14,7 @@ namespace Webinar.Models
         [Required, Display(Name = "Nama Belakang")]
         public string NamaBelakang { get; set; }
 
-        [Display(Name = "Full Name")]
+        [Required,Display(Name = "Full Name")]
         public string NamaPanjang
         {
             get { return NamaDepan + ", " + NamaBelakang; }

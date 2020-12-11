@@ -10,7 +10,7 @@ using Webinar.Data;
 namespace Webinar.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201210143857_Second")]
+    [Migration("20201211023409_Second")]
     partial class Second
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

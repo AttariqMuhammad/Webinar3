@@ -22,7 +22,8 @@ namespace Webinar.Controllers
         // GET: Pendaftaran
         public async Task<IActionResult> Index()
         {
-            return View(await _context.PendaftaranModels.ToListAsync());
+            var applicationDbContext = _context.PendaftaranModels.Include(p => p.PenggunaModel).Include(p => p.WebinarModel);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Pendaftaran/Details/5
@@ -34,6 +35,8 @@ namespace Webinar.Controllers
             }
 
             var pendaftaranModel = await _context.PendaftaranModels
+                .Include(p => p.PenggunaModel)
+                .Include(p => p.WebinarModel)
                 .FirstOrDefaultAsync(m => m.PendaftaranModelID == id);
             if (pendaftaranModel == null)
             {
@@ -46,6 +49,8 @@ namespace Webinar.Controllers
         // GET: Pendaftaran/Create
         public IActionResult Create()
         {
+            ViewData["PenggunaModelID"] = new SelectList(_context.PenggunaModels, "PenggunaID", "NamaPanjang");
+            ViewData["WebinarModelID"] = new SelectList(_context.WebinarModels, "WebinarModelID", "JudulWebinar");
             return View();
         }
 
@@ -62,6 +67,8 @@ namespace Webinar.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["PenggunaModelID"] = new SelectList(_context.PenggunaModels, "PenggunaID", "NamaPanjang", pendaftaranModel.PenggunaModelID);
+            ViewData["WebinarModelID"] = new SelectList(_context.WebinarModels, "WebinarModelID", "JudulWebinar", pendaftaranModel.WebinarModelID);
             return View(pendaftaranModel);
         }
 
@@ -78,6 +85,8 @@ namespace Webinar.Controllers
             {
                 return NotFound();
             }
+            ViewData["PenggunaModelID"] = new SelectList(_context.PenggunaModels, "PenggunaID", "NamaPanjang", pendaftaranModel.PenggunaModelID);
+            ViewData["WebinarModelID"] = new SelectList(_context.WebinarModels, "WebinarModelID", "JudulWebinar", pendaftaranModel.WebinarModelID);
             return View(pendaftaranModel);
         }
 
@@ -113,6 +122,8 @@ namespace Webinar.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["PenggunaModelID"] = new SelectList(_context.PenggunaModels, "PenggunaID", "PenggunaID", pendaftaranModel.PenggunaModelID);
+            ViewData["WebinarModelID"] = new SelectList(_context.WebinarModels, "WebinarModelID", "JudulWebinar", pendaftaranModel.WebinarModelID);
             return View(pendaftaranModel);
         }
 
@@ -125,6 +136,8 @@ namespace Webinar.Controllers
             }
 
             var pendaftaranModel = await _context.PendaftaranModels
+                .Include(p => p.PenggunaModel)
+                .Include(p => p.WebinarModel)
                 .FirstOrDefaultAsync(m => m.PendaftaranModelID == id);
             if (pendaftaranModel == null)
             {
