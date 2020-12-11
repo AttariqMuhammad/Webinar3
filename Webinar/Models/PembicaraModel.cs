@@ -17,7 +17,7 @@ namespace Webinar.Models
         [Required,Display(Name = "Full Name")]
         public string NamaPanjang
         {
-            get { return NamaDepan + ", " + NamaBelakang; }
+            get { return NamaDepan  +" "+ NamaBelakang; }
         }
 
         public string Email { get; set; } // coba nanti tambah jumlah maks huruh email

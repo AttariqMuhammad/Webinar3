@@ -4,62 +4,28 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="text-center p-3">
+    <h1>Temukan Webinar yang ingin diikuti</h1>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.JudulWebinar)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Deskripsi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tanggal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Platform)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GambarUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PembicaraModel)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.JudulWebinar)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Deskripsi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tanggal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Platform)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GambarUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PembicaraModel.NamaBelakang)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.WebinarModelID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.WebinarModelID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.WebinarModelID">Delete</a>
-            </td>
-        </tr>
+@foreach (var item in Model)
+{
+    <div class="container-fluid">
+        <ul class="list-group-horizontal-sm rounded">
+            <li class="list-group-item active">@Html.DisplayNameFor(model => model.JudulWebinar) : @Html.DisplayFor(modelItem => item.JudulWebinar)</li>
+            <li class="list-group-item "><img src="@item.GambarUrl" class="img-fluid align-content-center img-thumbnail rounded " style="    max-height: 500px; overflow: auto; max-height: 500px; max-width : 500px ;" /></li>
+            <li class="list-group-item">@Html.DisplayNameFor(model => model.Tanggal) : @Html.DisplayFor(modelItem => item.Tanggal)</li>
+            <li class="list-group-item">@Html.DisplayNameFor(model => model.Platform) : @Html.DisplayFor(modelItem => item.Platform)</li>
+            <li class="list-group-item">Pembicara : @Html.DisplayFor(modelItem => item.PembicaraModel.NamaPanjang)</li>
+            <li class="list-group-item">@Html.DisplayNameFor(model => model.Deskripsi) : @Html.DisplayFor(modelItem => item.Deskripsi)</li>
+            <li class="list-group-item">
+                <a class="btn btn-primary active" asp-area="" asp-controller="Pengguna" asp-action="Create">Daftar</a>
+            </li>
+        </ul>
+    </div>
+
 }
-    </tbody>
-</table>
+
+
+
+

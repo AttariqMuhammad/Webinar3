@@ -27,6 +27,10 @@ namespace Webinar.Controllers
         {
             return View();
         }
+        public IActionResult TentangKami()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

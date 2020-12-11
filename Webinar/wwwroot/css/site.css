@@ -85,3 +85,8 @@ body {
     font-weight: 700;
     margin-top: 15px;
 }
+
+.max_height {
+    max-height: 5px;
+    overflow: auto;
+}
